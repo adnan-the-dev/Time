@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+</head>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        background-repeat: no-repeat;
+        object-fit: contain;
+        background-size: 100%;
+
+    }
+
+    #main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+        height: 100vh;
+
+    }
+
+    /* .dark{
+        color: blue;
+        background-color: brown;
+        text-shadow: 2px 2px #ff0000;
+    } */
+    #time {
+        font-size: 100px;
+        font-weight: bolder;
+        user-select: none;
+        text-shadow: 2px 2px #ff0000;
+    }
+</style>
+
+<body>
+    <div id="img-section">
+        <div id="main">
+            <div id="time">
+            </div>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="100" value="0" class="slider" id="myRange"
+                    oninput="slider(this.value)">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+
+
+    let time = document.getElementById("time")
+
+    setInterval(
+        () => {
+
+            time.innerHTML = new Date().toLocaleTimeString()
+
+            // const setBg = () => {
+            //     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+            //     document.body.style.backgroundColor = "#" + randomColor;
+            // }
+            // main.addEventListener("", setBg);
+            // setBg();
+
+        }, 1000
+    )
+
+    const images = [
+        {
+            nature: 'https://img.freepik.com/free-photo/green-park-view_1417-1492.jpg?w=2000',
+            moutain: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg',
+            village: 'https://rukminim2.flixcart.com/image/850/1000/kpcy5jk0/poster/a/l/p/large-beautiful-village-poster-scenery-scenrym-69-original-imag3m8znfczzfng.jpeg?q=20',
+            markhor: 'https://i.dawn.com/primary/2021/01/600ceb7bde52d.png',
+            jungle: 'https://www.tapet.com/media/catalog/product/cache/871f459736130e239a3f5e6472128962/w/0/w04835-small.jpg',
+            park: 'https://youimg1.tripcdn.com/target/10041f000001gpb607BC0.jpg?proc=source%2Ftrip',
+            lakes: 'https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2022/01/27181547/Untitled-design-114.jpg',
+            animated: 'https://static.videezy.com/system/resources/thumbnails/000/006/938/small/silky-blue-motion-background-720p.jpg',
+            abstract: 'https://media.istockphoto.com/id/1320326864/video/abstract-colorful-background-with-bright-neon-rays-and-glowing-lines-pink-red-blue-looping.jpg?s=640x640&k=20&c=Q7IRDDEAvtr3AopoVjW5vMBYH_ShMfxkq0oGAfci960=',
+            light: 'https://static.vecteezy.com/system/resources/thumbnails/007/384/252/small/neon-colorful-rectangular-frame-with-shining-effects-on-black-background-with-copy-space-empty-glowing-techno-backdrop-seamless-looping-animated-background-free-video.jpg',
+
+        }
+    ]
+
+
+
+
+    function slider(value) {
+
+        images.map((image) => {
+
+            if (value <= 10) {
+                document.body.style.backgroundImage = `url(${image.nature})`
+            } else if (value <= 20) {
+                document.body.style.backgroundImage = `url(${image.moutain})`;
+            } else if (value <= 30) {
+                document.body.style.backgroundImage = `url(${image.village})`;
+            } else if (value <= 40) {
+                document.body.style.backgroundImage = `url(${image.markhor})`;
+            } else if (value <= 50) {
+                document.body.style.backgroundImage = `url(${image.jungle})`;
+            } else if (value <= 60) {
+                document.body.style.backgroundImage = `url(${image.park})`;
+            } else if (value <= 70) {
+                document.body.style.backgroundImage = `url(${image.lakes})`;
+            } else if (value <= 80) {
+                document.body.style.backgroundImage = `url(${image.animated})`;
+            } else if (value <= 90) {
+                document.body.style.backgroundImage = `url(${image.abstract})`;
+            } else if (value <= 100) {
+                document.body.style.backgroundImage = `url(${image.light})`;
+            }
+
+        })
+    }
+
+</script>
+
+</html>
